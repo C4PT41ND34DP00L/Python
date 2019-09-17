@@ -11,7 +11,7 @@ def scanner(port):
     except:
         return False
 
-for portNumber in range(1,100):
+for portNumber in range(442,443):
     print("Scanning port", portNumber)
     if scanner(portNumber):
         print('[*] Port', portNumber, '/tcp','is open')
