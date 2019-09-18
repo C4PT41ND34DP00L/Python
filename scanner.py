@@ -10,12 +10,12 @@ min_port = 1
 
 def scan_host(host, port, r_code = 1):
 	try:
-		s = socket(AF_INT, SOCK_STREAM)
+		s = socket(AF_INET, SOCK_STREAM)
 		code = s.connect_ex((host, port))
 		if code ==0:
 			r_code = code
 		s.close()
-	except Exception, e:
+	except:
 		pass
 	return r_code
 
@@ -28,7 +28,7 @@ except KeyboardInterrupt:
 
 hostip = gethostbyname(host)
 print("\n[*] Host: %s IP: %s" % (host, hostip))
-print("[*] Scanning Started at %s...\n" % (time.steftime("%H:%M:%s)))
+print("[*] Scanning Started at %s...\n" % (time.strftime("%H:%M:%s")))
 start_time = datetime.now()
 
 for port in range(min_port, max_port):
@@ -37,10 +37,10 @@ for port in range(min_port, max_port):
 
 		if response == 0:
 			print("[+] Port %d: Open" % (port))
-	except Exception, e:
+	except:
 		pass
 stop_time = datetime.now()
-total_time_ duration = stop_time - start_time
+total_time_duration = stop_time - start_time
 print("\n[*] Scannig Finished at %s ..." % (time.strftime("%H:%M:%s")))
 print("[*] Scanning Duration: %s ..." % (total_time_duration))
-print("[*] Have a nice day ... Sergeant Exploiter ( Sploit )") 
+print("[*] Have a nice day ... Sergeant Exploiter ( Sploit )")
