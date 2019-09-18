@@ -35,7 +35,8 @@ def scan_ports(host_ip, delay):
     # Printing listening ports from small to large
     for i in range(10000):
         if output[i] == 'Listening':
-            print(str(i) + ': ' + output[i])
+            print('\033[1;32;48m' + str(i) + ': ' + output[i])
+
 
 
 
@@ -44,15 +45,17 @@ def main():
     delay = int(input("How many seconds the socket is going to wait until timeout: "))
     remoteServerIP  = socket.gethostbyname(host_ip)
     t1 = datetime.now()
-    print ("-" * 70)
-    print ("Please wait, scanning remote host", remoteServerIP, "at, ", t1)
-    print ("-" * 70)
+    print("")
+    print ("-" * 80)
+    print ("\033[1;37;48mPlease wait, scanning remote host\033[0;36;48m", remoteServerIP, "\033[1;37;48mat, ", t1)
+    print ("-" * 80)
+    print("")
     scan_ports(host_ip, delay)
     t2 = datetime.now()
 
     total =  t2 - t1
 
 # Printing the information to screen
-    print ('Scanning Completed in: ', total)
+    print ('\033[1;37;48mScanning Completed in: ', total)
 if __name__ == "__main__":
     main()

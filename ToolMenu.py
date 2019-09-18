@@ -4,9 +4,11 @@ import time
 import socket
 
 sock = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
-
+global savePath
+savePath = os.path.expanduser("~/Desktop")
 def main():
     os.system('cls' if os.name == 'nt' else 'clear')
+
     print("\033[0;31;48m")
     print(" _   _ _   _ _ _ _           ____       _ _   ")
     print("| | | | |_(_) (_) |_ _   _  | __ )  ___| | |_ ")
@@ -18,8 +20,8 @@ def main():
     print("              BY: C4PT41ND34DP00L               ")
     print("\033[1;37;48m")
     print(60 * "-")
-    print("[1] Set Global Variabels")
-    print("[2] Option 2")
+    print("[1] Choice 1")
+    print("[2] Scan Port")
     print("[3] Option 3")
     print("[99] Exit")
     print(60 * "-")
@@ -30,7 +32,8 @@ def main():
     choice = int(choice)
 
     if choice == 1:
-        gloVar()
+        print("Choice 1")
+        main()
     elif choice == 2:
         sock.settimeout(10)
 
@@ -70,33 +73,5 @@ def main():
     else:
         print("Please choose a valid option")
         main()
-
-def gloVar():
-    global savePath
-    savePath = os.path.expanduser("~/Desktop")
-    print(60 * "-")
-    print("[1] Set File Svae Path")
-    print("[2] Option 2")
-    print("[3] Option 3")
-    print("[99] Return to Main Manu")
-
-    choice = input("Pick an option ")
-
-    choice = int(choice)
-
-    if choice == 1:
-        savePath = input("Enter path to save files")
-        gloVar()
-    elif choice == 2:
-        print("Option 2 chosen")
-        gloVar()
-    elif choice == 3:
-        print("Option 3 chosen")
-        gloVar()
-    elif  choice == 99:
-        main()
-    else:
-        print("Please choose a valid option")
-        gloVar()
 
 main()
